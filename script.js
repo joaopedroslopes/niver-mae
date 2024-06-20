@@ -33,7 +33,12 @@ function createHeart() {
     }, 5000);
 }
 
-setTimeout(() => {
-    document.getElementById('greeting').style.display = 'none';
-    setInterval(createHeart, 50);
+setTimeout(() => {    
+    // Verificar se o dispositivo é móvel
+    const isMobile = window.innerWidth <= 768;
+    
+    // Definir o intervalo de criação de corações
+    const heartCreationInterval = isMobile ? 150 : 50;
+    
+    setInterval(createHeart, heartCreationInterval);
 }, 5000);
