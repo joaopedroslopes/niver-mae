@@ -1,0 +1,120 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* tela de inicio */
+
+.botao {
+    button{
+        background-color: rgb(239, 55, 233);
+        color: #fff;
+        border: none;
+        padding: 20px 50px;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+/* texto de feliz niver */
+
+#greeting {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    animation: fadeInOut 5s;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#heart-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 50px; /* Reduzir o tamanho do coração para dispositivos móveis */
+    height: 50px; /* Reduzir o tamanho do coração para dispositivos móveis */
+    background-color: var(--color);
+    transform-origin: center;
+    animation: floatUp 8s infinite;
+    opacity: 1;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    width: 50px; /* Reduzir o tamanho do coração para dispositivos móveis */
+    height: 50px; /* Reduzir o tamanho do coração para dispositivos móveis */
+    background-color: var(--color);
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -25px; /* Ajustar a posição para o tamanho reduzido */
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -25px; /* Ajustar a posição para o tamanho reduzido */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 2;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Estilos para telas maiores que 600px */
+@media (min-width: 600px) {
+    .heart {
+        width: 75px;
+        height: 75px;
+    }
+
+    .heart::before, .heart::after {
+        width: 75px;
+        height: 75px;
+    }
+
+    .heart::before {
+        top: -37.5px;
+    }
+
+    .heart::after {
+        left: -37.5px;
+    }
+}
